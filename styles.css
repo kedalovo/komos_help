@@ -5,10 +5,16 @@
 	    padding: 1em; /* Поля вокруг текста */
 	    text-decoration: none; /* Убираем подчёркивание */
 	    border-radius: 3px; /* Скругляем уголки */
-	}
+}
 .confirmation-code-hide {
 		display: none;
-	}
+}
 .confirmation-code-visible {
 		display: block;
-	}
+}
+div {
+	margin-bottom: 5px;
+}
+a {
+	margin:	5px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	  <link rel="stylesheet" href="styles.css">
+	  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+	<div class="form-wrap">
+		<div class="profile"><img src="https://vkclub.su/_data/stickers/zhdun/sticker_vk_zhdun_005.png" width="256" height="256" />
+		  <h1>Создание обращения</h1>
+		</div>
+		<form method="post" action="form.php">
+		  <div>
+			<label for="contragent">Контрагент</label>
+			<select id="service" name="service">
+			  <option>Выберите контрагента</option>
+			  <option value="mlk">Милком</option> 
+			  <option value="tk">Торговая компания</option> 
+			  <option value="vst">Восточный</option> 
+			  <option value="upf">Удмуртская птицефабрика</option> 
+			</select>
+		  </div>
+		  <div>
+			<label for="question">Тема</label>
+			<input id="theme" type="text" size="50" name="theme" placeholder="Введите тему вопроса" required>
+		  </div>
+		  <div>
+			<label for="questiontext">Описание</label>
+			<textarea id="questiontext" name="message" rows="5" cols="40" placeholder="Введите описание Вашего вопроса..." required></textarea>
+		  </div>
+		  <div>
+			<label for="service">Сервис</label>
+			<select id="service" name="service">
+			  <option>Выберите сервис</option>
+			  <option value="UT">УТ проект 123</option> 
+			  <option value="Deskplace">Организация рабочего места</option> 
+			  <option value="UPP">УПП</option> 
+			</select>
+			<div class="select-arrow"></div> 
+		  </div>	
+			<a href="#" class="btn">Отправить заявку</a>
+			<a href="menu_category.html" class="btn">Отмена</a>
+		</form> 
+	  </div>
+</body>
+</html>
