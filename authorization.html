@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-	<style>
-	   .btn {
-	    display: inline-block; /* Строчно-блочный элемент */
-	    background: #8C959D; /* Серый цвет фона */
-	    color: #fff; /* Белый цвет текста */
-	    padding: 1em; /* Поля вокруг текста */
-	    text-decoration: none; /* Убираем подчёркивание */
-	    border-radius: 3px; /* Скругляем уголки */
-	   }
-	   .confirmation-code-hide {
-			display: none;
-	   }
-	   .confirmation-code-visible {
-			display: block;
-		}
-	  </style>
+	  <link rel="stylesheet" href="styles.css">
 	  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
@@ -31,7 +16,7 @@
 		  </div>
 		  <div id="code" class="confirmation-code-hide">
 			<label for="name">Код</label>
-			<input type="text" size="40" name="confiramation-code" placeholder="Введите код" required>
+			<input type="text" size="40" name="confirmation-code" placeholder="Введите код" required>
 		  </div>
 		  <a href="#" id="authorization" class="btn">Авторизоваться</a>
 		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
