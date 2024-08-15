@@ -13,35 +13,54 @@
 		  <div>
 			<label for="name">E-mail</label>
 			<input type="email" size="40" id="email" name="email" placeholder="Ваш корп. E-mail" required>
+			<span id="error-message"></span>
 		  </div>
 		  <div id="code" class="hidden">
 			<label for="confirmation-code">Код</label>
 			<input type="text" size="40" id="confirmation-code" name="confirmation-code" placeholder="Введите код" required>
 		  </div>
-		  <a href="#" id="authorization" class="btn">Авторизоваться</a>
+		  <div class="text-center">
+			<a href="#" id="authorization" class="btn">Авторизоваться</a>
+		  </div>
 		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
 		</form> 
 	  </div>
-	<script>// Получаем ссылки на кнопку и div
-		const toggleButton = document.getElementById('authorization');
+	<script>
+	    const toggleButton = document.getElementById('authorization');
 		const codeDiv = document.getElementById('code');
+		// Получаем ссылки на кнопку и div
+		const emailInput = document.getElementById('email');
+		const errorMessageDiv = document.getElementById('error-message');
+		emailInput.addEventListener('input', () => {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			const isEmailValid = emailRegex.test(emailInput.value);
+			if(!isEmailValid){
+				emailInput.classList.add('invalid');
+				errorMessageDiv.textContent = 'Введите валидный E-mail!';
+			}
+			else {
+				emailInput.classList.remove('invalid');
+				errorMessageDiv.textContent = '';
+				//если форма валидна - продолжаем
 
-		// Добавляем обработчик события клика на кнопку
-		toggleButton.addEventListener('click', () => {
-			// Переключаем видимость div-элемента
-			codeDiv.classList.toggle('hidden');
-			codeDiv.classList.toggle('visible');
+				// Добавляем обработчик события клика на кнопку
+				toggleButton.addEventListener('click', () => {
+				// Переключаем видимость div-элемента
+				codeDiv.classList.toggle('hidden');
+				codeDiv.classList.toggle('visible');
 	
-		// Изменяем текст внутри <a>
-		if (toggleButton.textContent !== 'Подтвердить'){
-			toggleButton.textContent = 'Подтвердить';
-		}
-		else {
-			toggleButton.textContent = 'Отправить повторно';
-		}
+				// Изменяем текст внутри <a>
+				if (toggleButton.textContent !== 'Подтвердить'){
+					toggleButton.textContent = 'Подтвердить';
+				}
+				else {
+					toggleButton.textContent = 'Отправить повторно';
+				}
 
+				});
+			}
 		});
-
+		
 	</script>
 </body>
 </html>

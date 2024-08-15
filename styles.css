@@ -1,10 +1,23 @@
+body {
+  font-size: 16px;
+  background: #fbfbfb url("bg.jpg") 0 0 repeat;
+}
+form {
+	max-width: 400px;
+}
 .btn {
 	    display: inline-block; /* Строчно-блочный элемент */
 	    background: #8C959D; /* Серый цвет фона */
 	    color: #fff; /* Белый цвет текста */
-	    padding: 1em; /* Поля вокруг текста */
+	    padding: 0.5em; /* Поля вокруг текста */
+		width: 160px;
 	    text-decoration: none; /* Убираем подчёркивание */
 	    border-radius: 3px; /* Скругляем уголки */
+		text-align: center;
+}
+.text-center {
+	margin-top: 0.5em;
+	text-align: center;
 }
 .hidden {
 		display: none;
@@ -17,4 +30,17 @@ div {
 }
 a {
 	margin:	5px;
+}
+label, input {
+	display: block;
+}
+label {
+	margin-bottom: 0.25em;
+}
+.invalid {
+	border-color: red;
+	color: red;
+}
+#error-message {
+	color: red;
 }
