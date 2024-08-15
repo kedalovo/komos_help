@@ -16,7 +16,8 @@ def start(message: types.Message):
 @bot.message_handler(commands=["test"])
 def help(message: types.Message):
     new_json = {"test_message": "Hello, World!"}
-    url = "https://api.telegram.org/7518293362:AAG-3fDbEwfo65fJj3zuBeV1SAPh4idqlLw/test/test"
+    url = "https://api.telegram.org/7518293362:AAG-3fDbEwfo65fJj3zuBeV1SAPh4idqlLw/test"
     x = requests.post(url, json=new_json)
+    print(x.status_code)
 
 bot.infinity_polling()
