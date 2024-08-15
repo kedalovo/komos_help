@@ -10,6 +10,12 @@
 	    text-decoration: none; /* Убираем подчёркивание */
 	    border-radius: 3px; /* Скругляем уголки */
 	   }
+	   .confirmation-code-hide {
+			display: none;
+	   }
+	   .confirmation-code-visible {
+			display: block;
+		}
 	  </style>
 	  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
@@ -21,14 +27,36 @@
 		<form method="post" action="form.php">
 		  <div>
 			<label for="name">E-mail</label>
-			<input type="text" size="40" name="e-mail" placeholder="Ваш корп. E-mail" required>
+			<input type="email" size="40" name="email" placeholder="Ваш корп. E-mail" required>
 		  </div>
-		  <div>
+		  <div id="code" class="confirmation-code-hide">
 			<label for="name">Код</label>
-			<input type="text" size="40" name="confiramation-code" required>
+			<input type="text" size="40" name="confiramation-code" placeholder="Введите код" required>
 		  </div>
-		  <a href="buttonEnd.html" class="btn">Авторизоваться</a>
+		  <a href="#" id="authorization" class="btn">Авторизоваться</a>
+		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
 		</form> 
 	  </div>
+	<script>// Получаем ссылки на кнопку и div
+		const toggleButton = document.getElementById('authorization');
+		const codeDiv = document.getElementById('code');
+
+		// Добавляем обработчик события клика на кнопку
+		toggleButton.addEventListener('click', () => {
+			// Переключаем видимость div-элемента
+			codeDiv.classList.toggle('confirmation-code-hide');
+			codeDiv.classList.toggle('confirmation-code-visible');
+	
+		// Изменяем текст внутри <a>
+		if (toggleButton.textContent !== 'Подтвердить'){
+			toggleButton.textContent = 'Подтвердить';
+		}
+		else {
+			toggleButton.textContent = 'Отправить повторно';
+		}
+
+		});
+
+	</script>
 </body>
 </html>
