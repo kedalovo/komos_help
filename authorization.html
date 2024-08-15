@@ -12,11 +12,11 @@
 		<form method="post" action="form.php">
 		  <div>
 			<label for="name">E-mail</label>
-			<input type="email" size="40" name="email" placeholder="Ваш корп. E-mail" required>
+			<input type="email" size="40" id="email" name="email" placeholder="Ваш корп. E-mail" required>
 		  </div>
-		  <div id="code" class="confirmation-code-hide">
-			<label for="name">Код</label>
-			<input type="text" size="40" name="confirmation-code" placeholder="Введите код" required>
+		  <div id="code" class="hidden">
+			<label for="confirmation-code">Код</label>
+			<input type="text" size="40" id="confirmation-code" name="confirmation-code" placeholder="Введите код" required>
 		  </div>
 		  <a href="#" id="authorization" class="btn">Авторизоваться</a>
 		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
@@ -29,8 +29,8 @@
 		// Добавляем обработчик события клика на кнопку
 		toggleButton.addEventListener('click', () => {
 			// Переключаем видимость div-элемента
-			codeDiv.classList.toggle('confirmation-code-hide');
-			codeDiv.classList.toggle('confirmation-code-visible');
+			codeDiv.classList.toggle('hidden');
+			codeDiv.classList.toggle('visible');
 	
 		// Изменяем текст внутри <a>
 		if (toggleButton.textContent !== 'Подтвердить'){

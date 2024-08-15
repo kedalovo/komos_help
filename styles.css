@@ -6,10 +6,10 @@
 	    text-decoration: none; /* Убираем подчёркивание */
 	    border-radius: 3px; /* Скругляем уголки */
 }
-.confirmation-code-hide {
+.hidden {
 		display: none;
 }
-.confirmation-code-visible {
+.visible {
 		display: block;
 }
 div {
