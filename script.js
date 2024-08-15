@@ -9,8 +9,9 @@ user = app.initDataUnsafe.user
 
 check_user(user.id)
 
-function check_user(user_id)
+function check_user()
 {
+    let user_id = 7288248016 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "http://tst-izm-1c001.komos-group.ru/1cv8_ki_for_hakaton_ZykovSL_do18082024/hs/Return/" + user_id);
     xhr.send();
