@@ -11,3 +11,8 @@ function check_user(id, data)
 {
     // Код, который делает что-то с принятыми данными
 }
+
+function test(new_json)
+{
+    console.log(new_json["test_message"])
+}
