@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="form-wrap" id="authorization_menu">
+    <div id="authorization_menu">
 		<div class="profile"><img src="https://vkclub.su/_data/stickers/zhdun/sticker_vk_zhdun_005.png" width="256" height="256" />
 		  <h1>Авторизация</h1>
 		</div>
@@ -28,7 +28,7 @@
 		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
 		</form> 
 	</div>
-    <div class="form-wrap" id="menu_categories">
+    <div class="hidden" id="menu_categories">
 		<div class="profile"><img src="https://vkclub.su/_data/stickers/zhdun/sticker_vk_zhdun_005.png" width="256" height="256" />
 		  <h1>Меню категорий</h1>
 		</div>
@@ -44,6 +44,8 @@
 		const codeDiv = document.getElementById('code');
 		// Получаем ссылки на кнопку и div
 		const emailInput = document.getElementById('email');
+		const authorizationDiv = document.getElementById('authorization_menu');
+		const menu_categoriesDiv = document.getElementById('menu_categories');
 		const errorMessageDiv = document.getElementById('error-message');
         let is_valid = false
 		emailInput.addEventListener('input', () => {
@@ -52,40 +54,36 @@
 			if(!isEmailValid){
 				emailInput.classList.add('invalid');
 				errorMessageDiv.textContent = 'Введите валидный E-mail!';
-                is_valid = false
 			}
 			else {
 
 				emailInput.classList.remove('invalid');
 				errorMessageDiv.textContent = '';
 				//если форма валидна - продолжаем
+				toggleButton.addEventListener('click', () => {
+				// Переключаем видимость div-элемента
+					if (codeDiv.classList.contains('hidden')) {
+						codeDiv.classList.remove('hidden');
+					}
+					else {
+						codeDiv.classList.add('hidden')
+					}
 
-				is_valid = true
+					// Изменяем текст внутри <a>
+					if (toggleButton.textContent !== 'Подтвердить'){
+						toggleButton.textContent = 'Подтвердить';
+					}
+					else {
+						toggleButton.textContent = 'Отправить повторно';
+					}
+					if(toggleButton.textContent === 'Отправить повторно'){
+					// Добавляем обработчик события клика на кнопку
+						authorizationDiv.classList.add('authorization_menu_hide');
+						menu_categoriesDiv.classList.remove('hidden');
+					}
+				});
 			}
-            console.log(is_valid)
 		});
-        if (is_valid) {
-            console.log("BUTTON")
-            // Добавляем обработчик события клика на кнопку
-            toggleButton.addEventListener('click', () => {
-            // Переключаем видимость div-элемента
-            if (codeDiv.classList.contains('hidden')) {
-                codeDiv.classList.remove('hidden');
-            }
-            else {
-                codeDiv.classList.add('hidden')
-            }
-
-            // Изменяем текст внутри <a>
-            if (toggleButton.textContent !== 'Подтвердить'){
-                toggleButton.textContent = 'Подтвердить';
-            }
-            else {
-                toggleButton.textContent = 'Отправить повторно';
-            }
-
-            });
-        }
 	</script>
     <script src="script.js"></script>
 </body>

@@ -1,9 +1,10 @@
 body {
+  max-width: 300px;
   font-size: 16px;
   background: #fbfbfb url("bg.jpg") 0 0 repeat;
 }
 form {
-	max-width: 400px;
+	max-width: relative;
 }
 .btn {
 	    display: inline-block; /* Строчно-блочный элемент */
@@ -33,6 +34,7 @@ a {
 }
 label, input {
 	display: block;
+	max-width: relative;
 }
 label {
 	margin-bottom: 0.25em;
@@ -44,6 +46,7 @@ label {
 #error-message {
 	color: red;
 }
-#menu_categories {
+
+.authorization_menu_hide {
 	display: none;
 }
