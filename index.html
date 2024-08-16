@@ -5,10 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Помощник</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <embed src="authorization.html" style="width: 400px; height: 500px;" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no" id="authorization">
-    <embed src="menu_category.html" style="width: 400px; height: 500px;" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=no" id="menu_category">
+    <div class="form-wrap" id="authorization_menu">
+		<div class="profile"><img src="https://vkclub.su/_data/stickers/zhdun/sticker_vk_zhdun_005.png" width="256" height="256" />
+		  <h1>Авторизация</h1>
+		</div>
+		<form method="post" action="form.php">
+		  <div>
+			<label for="name">E-mail</label>
+			<input type="email" size="40" id="email" name="email" placeholder="Ваш корп. E-mail" required>
+			<span id="error-message"></span>
+		  </div>
+		  <div id="code" class="hidden">
+			<label for="confirmation-code">Код</label>
+			<input type="text" size="40" id="confirmation-code" name="confirmation-code" placeholder="Введите код" required>
+		  </div>
+		  <div class="text-center">
+			<a href="#" id="authorization" class="btn">Авторизоваться</a>
+		  </div>
+		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
+		</form> 
+	</div>
+    <div class="form-wrap" id="menu_categories">
+		<div class="profile"><img src="https://vkclub.su/_data/stickers/zhdun/sticker_vk_zhdun_005.png" width="256" height="256" />
+		  <h1>Меню категорий</h1>
+		</div>
+		<form method="post" action="form.php">
+		  <a href="create_task.html" id="create-task" class="btn">Создать новое обращение</a><br/>
+		  <a href="task-status.html" id="task-status" class="btn">Статус по обращению</a><br/>
+		  <a href="#" id="get-active-tasks-status" class="btn">Статус по незакрытым обращениям</a>
+		  <!--<button type="submit" id="authorization">Авторизоваться</button>-->
+		</form> 
+	</div>
+	<script>
+	    const toggleButton = document.getElementById('authorization');
+		const codeDiv = document.getElementById('code');
+		// Получаем ссылки на кнопку и div
+		const emailInput = document.getElementById('email');
+		const errorMessageDiv = document.getElementById('error-message');
+        let is_valid = false
+		emailInput.addEventListener('input', () => {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			const isEmailValid = emailRegex.test(emailInput.value);
+			if(!isEmailValid){
+				emailInput.classList.add('invalid');
+				errorMessageDiv.textContent = 'Введите валидный E-mail!';
+                is_valid = false
+			}
+			else {
+
+				emailInput.classList.remove('invalid');
+				errorMessageDiv.textContent = '';
+				//если форма валидна - продолжаем
+
+				is_valid = true
+			}
+            console.log(is_valid)
+		});
+        if (is_valid) {
+            console.log("BUTTON")
+            // Добавляем обработчик события клика на кнопку
+            toggleButton.addEventListener('click', () => {
+            // Переключаем видимость div-элемента
+            if (codeDiv.classList.contains('hidden')) {
+                codeDiv.classList.remove('hidden');
+            }
+            else {
+                codeDiv.classList.add('hidden')
+            }
+
+            // Изменяем текст внутри <a>
+            if (toggleButton.textContent !== 'Подтвердить'){
+                toggleButton.textContent = 'Подтвердить';
+            }
+            else {
+                toggleButton.textContent = 'Отправить повторно';
+            }
+
+            });
+        }
+	</script>
     <script src="script.js"></script>
 </body>
 </html>

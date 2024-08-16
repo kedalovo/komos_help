@@ -44,3 +44,6 @@ label {
 #error-message {
 	color: red;
 }
+#menu_categories {
+	display: none;
+}
